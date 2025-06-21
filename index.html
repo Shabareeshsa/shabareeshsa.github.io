@@ -9,20 +9,39 @@
 
 <div id="content"></div>
 <script>
-  const encryptedData = "U2FsdGVkX188yKdhXWc7WOLnjWfrLFiNBFDIY4F7HaF5kYqd2MLdbkcz1yZbfuMQhIsOQ+VjCDyJhz9/gg4Q36t7x+y6/MLNU3vGpiCBybX94PBlz4k9MJqDlwehiOAdqw+aCvlgq9P51Iv0oZNaZnudPr/CKrczj8alYmySu+8bmziuP9feDMYBUp/Ah12Z";
+  const encryptedData = "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";
 
   function decrypt(password) {
     const bytes = CryptoJS.AES.decrypt(encryptedData, password);
     return bytes.toString(CryptoJS.enc.Utf8);
   }
 
-  const password = prompt("Enter password:");
+  const password = prompt("Enter password to view the contents");
   const decrypted = decrypt(password);
 
   if (decrypted) {
     document.getElementById("content").innerHTML = decrypted;
   } else {
-    document.body.innerHTML = "<h2>Access deniesd. Wrong password.</h2>";
+    document.body.innerHTML = "<h2>Access denied. Wrong password.</h2>";
   }
 </script>
 
