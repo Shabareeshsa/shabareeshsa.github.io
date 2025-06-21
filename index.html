@@ -3,38 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Name</title>
+  <title>Private Resume Page</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 50px auto;
-      padding: 20px;
+      padding: 40px;
       background-color: #f4f4f4;
     }
-    h1 { color: #333; }
-    .info { margin-top: 20px; }
+    #content {
+      display: none;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
   </style>
 </head>
 <body>
-  <h1>Your Name</h1>
-  <p><strong>Email:</strong> you@example.com</p>
-  <p><strong>Location:</strong> City, Country</p>
-  <div class="info">
+  <div id="content">
+    <h1>Your Name</h1>
+    <p><strong>Email:</strong> your@email.com</p>
+    <p><strong>Location:</strong> City, Country</p>
     <h2>About Me</h2>
-    <p>Brief bio about who you are, what you do, and what you're passionate about.</p>
-
+    <p>Short bio...</p>
     <h2>Skills</h2>
     <ul>
-      <li>HTML/CSS/JavaScript</li>
-      <li>Python</li>
-      <li>Any other relevant skill</li>
-    </ul>
-
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>Project Name:</strong> Short description</li>
+      <li>Skill 1</li>
+      <li>Skill 2</li>
     </ul>
   </div>
+
+  <script>
+    const password = prompt("Enter password to access this page:");
+    if (password === "mypassword123") {
+      document.getElementById("content").style.display = "block";
+    } else {
+      document.body.innerHTML = "<h1>Access Denied</h1><p>Wrong password.</p>";
+    }
+  </script>
 </body>
 </html>
