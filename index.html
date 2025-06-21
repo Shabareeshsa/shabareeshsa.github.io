@@ -1,45 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Private Resume Page</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 40px;
-      background-color: #f4f4f4;
-    }
-    #content {
-      display: none;
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-  </style>
+<meta charset="UTF-8" />
+<title>Encrypted Page</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 </head>
 <body>
-  <div id="content">
-    <h1>Your Name</h1>
-    <p><strong>Email:</strong> your@email.com</p>
-    <p><strong>Location:</strong> City, Country</p>
-    <h2>About Me</h2>
-    <p>Short bio...</p>
-    <h2>Skills</h2>
-    <ul>
-      <li>Skill 1</li>
-      <li>Skill 2</li>
-    </ul>
-  </div>
 
-  <script>
-    const password = prompt("Enter myfull name to access this page (without space and small):");
-    if (password === "shabareeshsa") {
-      document.getElementById("content").style.display = "block";
-    } else {
-      document.body.innerHTML = "<h1>Access Denied</h1><p>Wrong password.</p>";
-    }
-  </script>
+<div id="content"></div>
+<script>
+  const encryptedData = "U2FsdGVkX188yKdhXWc7WOLnjWfrLFiNBFDIY4F7HaF5kYqd2MLdbkcz1yZbfuMQhIsOQ+VjCDyJhz9/gg4Q36t7x+y6/MLNU3vGpiCBybX94PBlz4k9MJqDlwehiOAdqw+aCvlgq9P51Iv0oZNaZnudPr/CKrczj8alYmySu+8bmziuP9feDMYBUp/Ah12Z";
+
+  function decrypt(password) {
+    const bytes = CryptoJS.AES.decrypt(encryptedData, password);
+    return bytes.toString(CryptoJS.enc.Utf8);
+  }
+
+  const password = prompt("Enter password:");
+  const decrypted = decrypt(password);
+
+  if (decrypted) {
+    document.getElementById("content").innerHTML = decrypted;
+  } else {
+    document.body.innerHTML = "<h2>Access denied. Wrong password.</h2>";
+  }
+</script>
+
 </body>
 </html>
